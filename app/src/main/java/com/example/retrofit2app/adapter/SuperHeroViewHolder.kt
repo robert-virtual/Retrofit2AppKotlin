@@ -2,34 +2,29 @@ package com.example.retrofit2app.adapter
 
 import android.content.Intent
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.retrofit2app.ItemActivity
-import com.example.retrofit2app.R
 import com.example.retrofit2app.SuperHero
+import com.example.retrofit2app.databinding.ItemSuperHeroBinding
 
 class SuperHeroViewHolder (view:View):RecyclerView.ViewHolder(view){
-    val cardViewItem = view.findViewById<CardView>(R.id.cv_item)
-    val superHero = view.findViewById<TextView>(R.id.tv_super_hero)
-    val realName = view.findViewById<TextView>(R.id.tv_real_name)
-    val publisher = view.findViewById<TextView>(R.id.tv_publisher)
-    val itemImage= view.findViewById<ImageView>(R.id.iv_item_image)
+
+    val binding  =  ItemSuperHeroBinding.bind(view)
+
     fun render (superHeroObj:SuperHero){
-        superHero.text = superHeroObj.superhero
-        realName.text = superHeroObj.realname
-        publisher.text = superHeroObj.publisher
+        binding.tvSuperHero.text = superHeroObj.superhero
+        binding.tvRealName.text = superHeroObj.realname
+        binding.tvPublisher.text = superHeroObj.publisher
 
-        Glide.with(itemImage.context)
+        Glide.with(binding.ivItemImage.context)
             .load(superHeroObj.photo)
-            .into(itemImage)
+            .into(binding.ivItemImage)
 
-        cardViewItem.setOnClickListener {
-            val i = Intent(cardViewItem.context,ItemActivity::class.java)
+        binding.cvItem.setOnClickListener {
+            val i = Intent(binding.cvItem.context,ItemActivity::class.java)
             i.putExtra("superHero",superHeroObj)
-            cardViewItem.context.startActivity(i)
+            binding.cvItem.context.startActivity(i)
 
         }
 
