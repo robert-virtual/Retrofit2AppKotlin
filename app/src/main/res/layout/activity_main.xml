@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/rl_relative_layout"
@@ -9,5 +9,61 @@
     android:layout_width="match_parent"
     android:id="@+id/recyclerSuperHero"
     android:layout_height="wrap_content"/>
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+   android:layout_centerInParent="true"
+    android:layout_margin="15dp"
+    android:visibility="gone"
+    android:padding="5dp"
+    android:id="@+id/item_selected"
+    android:layout_height="wrap_content">
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_alignParentLeft="true"
+            android:src="@mipmap/ic_launcher"
+            android:layout_margin="15dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/iv_item_image"
+            android:layout_height="100dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:id="@+id/btn_close_item"
+            android:layout_margin="5dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_close"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/btn_close_item"
+            android:orientation="vertical"
+            android:id="@+id/ll_linear_layout"
+            android:layout_toRightOf="@+id/iv_item_image"
+            android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Super Hero"
+                    android:id="@+id/tv_super_hero"
+                    android:textSize="30dp"
+                    android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="real name"
+                android:id="@+id/tv_real_name"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="publisher"
+                android:id="@+id/tv_publisher"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+</RelativeLayout>
